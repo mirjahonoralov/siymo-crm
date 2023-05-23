@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  /* --primary: #e78137; */
+  --primary: #ff810e;
+  --dark: #000;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* remove accordion border top in settings page */
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+  height: 0px !important;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  padding-right: 5px !important;
+  width: fit-content !important;
+}
+
+/* .apexcharts-legend .apexcharts-align-center .apx-legend-position-right {
+  display: none !important;
+} */
+
+.apexcharts-datalabel-value {
+  font-size: 41px;
+  font-weight: 600;
+  font-family: "Roboto";
+}
