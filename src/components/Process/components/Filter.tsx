@@ -91,7 +91,7 @@ const Filter: React.FC<{ handleClose: () => void }> = ({ handleClose }) => {
 
           <FilterWrapper>
             <Text c="#828282" fs="9px" fw="400">
-              Вид работы
+              Подкатегорияы
             </Text>
             <CustomSelect
               width="261px"

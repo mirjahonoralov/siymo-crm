@@ -120,7 +120,7 @@ const ApplicationComp: React.FC<T> = ({
       <Stack p="14px 24px" bgcolor="#E8E8E8">
         <FlexBetween gap="63px" alignItems="flex-start" mb="30px">
           <InputWrapper>
-            <InputTitle>Тип работ</InputTitle>
+            <InputTitle>Категория</InputTitle>
             <CustomSelect
               width="300px"
               value={listItem.job?.id}
@@ -206,7 +206,7 @@ const ApplicationComp: React.FC<T> = ({
           alignItems="flex-end"
         >
           <InputWrapper>
-            <InputTitle>Вид работ</InputTitle>
+            <InputTitle>Подкатегория</InputTitle>
             <CustomSelect
               width="300px"
               values={workTypes.filter(

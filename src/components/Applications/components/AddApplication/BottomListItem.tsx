@@ -88,7 +88,7 @@ const BottomListItem: React.FC<{
 
         <Stack gap="8px" width="300px" minWidth="300px">
           <InputWrapper>
-            <InputTitle>Тип работ</InputTitle>
+            <InputTitle>Категория</InputTitle>
             <Info>
               {job?.name.length! > 30
                 ? job?.name.slice(0, 30) + "..."
@@ -97,7 +97,7 @@ const BottomListItem: React.FC<{
           </InputWrapper>
 
           <InputWrapper>
-            <InputTitle>Вид работ</InputTitle>
+            <InputTitle>Подкатегория</InputTitle>
             <Info>
               {work?.name.length! > 30
                 ? work?.name.slice(0, 30) + "..."

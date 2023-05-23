@@ -70,7 +70,7 @@ const Filter: React.FC<{ handleClose: () => void }> = ({ handleClose }) => {
         <Stack gap="20px" width="50%">
           <FilterWrapper>
             <Text c="#828282" fs="9px" fw="400">
-              Виды работ
+              Подкатегория
             </Text>
             <CustomSelect
               width="261px"

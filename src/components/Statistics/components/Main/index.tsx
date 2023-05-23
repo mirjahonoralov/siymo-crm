@@ -106,7 +106,7 @@ const Main = () => {
           <Col>
             <FlexBetween>
               <Text fs="18px" fw="600" c="var(--primary)">
-                Виды работ
+                Подкатегория
               </Text>
               <Text fs="18px" fw="600" c="var(--primary)">
                 {workTotal}
@@ -128,7 +128,7 @@ const Main = () => {
           <Col>
             <FlexBetween>
               <Text fs="18px" fw="600" c="var(--primary)">
-                Тип работ
+                Категория
               </Text>
               <Text fs="18px" fw="600" c="var(--primary)">
                 {jobTotal}

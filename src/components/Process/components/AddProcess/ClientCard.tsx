@@ -57,7 +57,7 @@ const ClientCard: React.FC<T> = ({
         </InputWrapper>
 
         <InputWrapper>
-          <span>Вид работы</span>
+          <span>Подкатегорияы</span>
           <CustomSelect
             width="100%"
             value={processData.work?.id || ""}
