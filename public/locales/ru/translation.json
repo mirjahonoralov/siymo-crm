@@ -1,0 +1,232 @@
+{
+  "login": {
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "login": "Входить"
+  },
+  "sidebar": {
+    "role": "Account manager",
+    "menus": [
+      {
+        "path": "/statistics",
+        "name": "Аналитика",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      },
+      {
+        "path": "/applications",
+        "name": "Заявки",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "account_manager"
+        ]
+      },
+      {
+        "path": "/contact",
+        "name": "Контакты",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      },
+      {
+        "path": "/process",
+        "name": "Бизнес-процессы",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager"
+        ]
+      },
+      {
+        "path": "/employees",
+        "name": "Сотрудники",
+        "permission": ["director", "crm_manager", "office_manager"]
+      },
+      {
+        "path": "/settings",
+        "name": "Настройки",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      }
+    ],
+    "logout": "Выход"
+  },
+  "roles": [
+    { "name": "CRM менеджер", "value": "crm_manager", "id": 0 },
+    { "name": "Финансовый директор", "value": "finance_director", "id": 1 },
+    { "name": "Аккаунт менеджер", "value": "account_manager", "id": 2 },
+    { "name": "Офис менеджер", "value": "office_manager", "id": 3 }
+  ],
+  "applications": {
+    "header": {
+      "list": "Список Заявок",
+      "add": "Добавить Заявку"
+    },
+    "applicationsTypes": [
+      {
+        "title": "Заявки",
+        "shortTitle": "Заявки",
+        "step": "application",
+        "color": "#D1D1D2"
+      },
+      {
+        "title": "Согласование цены   ",
+        "shortTitle": "Согл- цен",
+        "step": "price",
+        "color": "#E39E4E"
+      },
+      {
+        "title": "Согласование дизайна",
+        "shortTitle": "Согл-диз",
+        "step": "designing",
+        "color": "#3B91F6"
+      },
+      {
+        "title": "Изготовление",
+        "shortTitle": "Изг-ие",
+        "step": "preparing",
+        "color": "#874EE3"
+      },
+      {
+        "title": "Оплата",
+        "shortTitle": "Оплата",
+        "step": "paying",
+        "color": "#FED32C"
+      },
+
+      {
+        "title": "Успешно реализованные",
+        "shortTitle": "Усп-реализ",
+        "step": "finish",
+        "color": "#4EE3C0"
+      },
+      {
+        "title": "Не реализованные",
+        "shortTitle": "Не реализован",
+        "step": "cancelled",
+        "color": "#FF525F"
+      }
+    ],
+    "cancelNotification": "Отменено"
+  },
+  "settings": {
+    "title": "Настройки",
+    "add": "Создать",
+    "back": "Назад",
+    "cards": [
+      {
+        "name": "Профиль пользователя",
+        "path": "user-settings",
+        "dataTypes": ""
+      },
+      {
+        "name": "Типы работ",
+        "path": "work-types",
+        "dataTypes": "jobTypes",
+        "modal": {
+          "add": "Создать новый тип работы",
+          "edit": "Изменить тип работы"
+        }
+      },
+      {
+        "name": "Виды работ",
+        "path": "view-types",
+        "dataTypes": "workTypes",
+        "modal": {
+          "add": "Создать новый Вид работы",
+          "edit": "Изменить Вид работы"
+        }
+      },
+      {
+        "name": "Вид деятельности клиентов",
+        "path": "kind-of-activity-clients",
+        "dataTypes": "clientTypes",
+        "modal": {
+          "add": "Создать новый деятельность клиента",
+          "edit": "Изменить активность клиента"
+        }
+      },
+      {
+        "name": "Откуда о нас узнали ",
+        "path": "know-about-us",
+        "dataTypes": "about",
+        "modal": {
+          "add": "Создать новый Откуда о нас узнали",
+          "edit": "Изменить Откуда о нас узнали"
+        }
+      },
+      {
+        "name": "Причина отмены",
+        "path": "reason-of-cancel",
+        "dataTypes": "cancel",
+        "modal": {
+          "add": "Создать Причина отмены",
+          "edit": "Изменить Причина отмены"
+        }
+      }
+    ],
+    "snackbar": {
+      "created": "Был создан",
+      "updated": "Измененный",
+      "deleted": "Удалено"
+    }
+  },
+  "contact": {
+    "title": "Контакты",
+    "add": "Создать контакт",
+    "edit": "Изменить контакт",
+    "company": "Наименование организаяии",
+    "activity": "Вид деятельности",
+    "filterByAlphabetic": "По альфавиту",
+    "filterByTime": "Дата изменения"
+  },
+  "employees": {
+    "title": "Сотрудники",
+    "placeholder": "Введите наименование сотрудник…",
+    "addNew": "Добавить нового сотрудника",
+    "edit": "Изменить информацию о сотруднике"
+  },
+  "validations": {
+    "fill": "Заполнить его",
+    "loginError": "Имя пользователя или пароль неверны"
+  },
+  "common": {
+    "save": "Сохранить",
+    "add": "Создать",
+    "edit": "Изменять",
+    "delete": "Удалить",
+    "first-name": "Имя",
+    "last-name": "Фамилия",
+    "role": "Должность",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "phoneNumber": "Номер телефона",
+    "telegram": "Телеграм",
+    "cancel": "Отменить",
+    "activity": "Вид деятельности",
+    "select": "Выбирать"
+  },
+  "filter": {
+    "filter": "Фильтр",
+    "from": "От",
+    "to": "До",
+    "time": "Время"
+  }
+}

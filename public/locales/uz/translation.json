@@ -1,0 +1,235 @@
+{
+  "login": {
+    "username": "Username",
+    "password": "Parol",
+    "login": "Kirish"
+  },
+  "sidebar": {
+    "role": "Account manager",
+    "menus": [
+      {
+        "path": "/statistics",
+        "name": "Analitika",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      },
+
+      {
+        "path": "/applications",
+        "name": "Ilovalar",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "account_manager"
+        ]
+      },
+      {
+        "path": "/contact",
+        "name": "Kontaktlar",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      },
+      {
+        "path": "/process",
+        "name": "Biznes-jarayonlari",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager"
+        ]
+      },
+      {
+        "path": "/employees",
+        "name": "Xodimlar",
+        "permission": ["director", "crm_manager", "office_manager"]
+      },
+      {
+        "path": "/settings",
+        "name": "Sozlamalar",
+        "permission": [
+          "director",
+          "crm_manager",
+          "finance_director",
+          "office_manager",
+          "account_manager"
+        ]
+      }
+    ],
+    "logout": "Chiqish"
+  },
+  "roles": [
+    { "name": "CRM menejer", "value": "crm_manager", "id": 0 },
+    { "name": "Moliya direktori", "value": "finance_director", "id": 1 },
+    { "name": "Akkaunt Menejer", "value": "account_manager", "id": 2 },
+    { "name": "Ofis menejer", "value": "office_manager", "id": 3 }
+  ],
+  "applications": {
+    "header": {
+      "list": "Ilovalar roʻyxati",
+      "add": "Ilova Qo'shish"
+    },
+    "applicationsTypes": [
+      {
+        "title": "Ilovalar",
+        "shortTitle": "Заявки",
+        "step": "application",
+        "color": "#D1D1D2"
+      },
+      {
+        "title": "Narx bo'yicha muzokaralar",
+        "shortTitle": "Согл-цен",
+        "step": "price",
+        "color": "#E39E4E"
+      },
+      {
+        "title": "Dizaynni tasdiqlash",
+        "shortTitle": "Согл-диз",
+        "step": "designing",
+        "color": "#3B91F6"
+      },
+      {
+        "title": "Ishlab chiqarish",
+        "shortTitle": "Изг-ие",
+        "step": "preparing",
+        "color": "#874EE3"
+      },
+      {
+        "title": "To'lov",
+        "shortTitle": "Оплата",
+        "step": "paying",
+        "color": "#FED32C"
+      },
+
+      {
+        "title": "Muvaffaqiyatli amalga oshirildi",
+        "shortTitle": "Усп-реализ",
+        "step": "finish",
+        "color": "#4EE3C0"
+      },
+      {
+        "title": "Amalga oshirilmagan",
+        "shortTitle": "Не реализован",
+        "step": "cancelled",
+        "color": "#FF525F"
+      }
+    ],
+    "cancelNotification": "Bekor qilindi"
+  },
+  "settings": {
+    "title": "Sozlamalar",
+    "add": "Qo'shish",
+    "back": "Orqaga",
+    "cards": [
+      {
+        "name": "Foydalanuvchi profili",
+        "path": "user-settings",
+        "dataType": ""
+      },
+      {
+        "name": "Ish turlari",
+        "path": "work-types",
+        "dataType": "jobTypes",
+        "modal": {
+          "add": "Yangi ish turini qo'shish",
+          "edit": "Ish turini o'zgartirish"
+        }
+      },
+      {
+        "name": "Ish ko'rinishlari",
+        "path": "view-types",
+        "dataType": "workTypes",
+        "modal": {
+          "add": "Yangi ish ko'rinishini qo'shish",
+          "edit": "Ish ko'rinishini o'zgartirish"
+        }
+      },
+      {
+        "name": "Mijoz faoliyati turi",
+        "path": "kind-of-activity-clients",
+        "dataType": "clientTypes",
+        "modal": {
+          "add": "Mijoz faoliyatini qo'shish",
+          "edit": "Mijoz faoliyatini o'zgartirish"
+        }
+      },
+      {
+        "name": "Biz haqimizda qanday bildingiz",
+        "path": "know-about-us",
+        "dataType": "about",
+
+        "modal": {
+          "add": "Biz haqimizda qo'shish",
+          "edit": "Biz haqimizda o'zgartirish"
+        }
+      },
+      {
+        "name": "Bekor qilish sababi",
+        "path": "reason-of-cancel",
+        "dataType": "cancel",
+        "modal": {
+          "add": "Bekor qilish sababini qo'shish",
+          "edit": "Bekor qilish sababini o'zgartirish"
+        }
+      }
+    ],
+
+    "snackbar": {
+      "created": "Yaratildi",
+      "updated": "O'zgatirildi",
+      "deleted": "O'chirildi"
+    }
+  },
+  "contact": {
+    "title": "Kontaktlar",
+    "add": "Kontakt qo'shish",
+    "edit": "Kontakt o'zgartirish",
+    "company": "Tashkilot nomi",
+    "activity": "Faoliyat turi",
+    "filterByAlphabetic": "Alifbo bo'yicha",
+    "filterByTime": "O'zgartirish sanasi"
+  },
+  "employees": {
+    "title": "Xodimlar",
+    "placeholder": "Xodimning ismini kiriting...",
+    "addNew": "Yangi xodim qo'shish",
+    "edit": "Xodimni malumotlarini o'zgartirish"
+  },
+  "validations": {
+    "fill": "To'ldiring",
+    "loginError": "Username yoki parol xato"
+  },
+  "common": {
+    "save": "Saqlash",
+    "add": "Qo'shish",
+    "edit": "O'zgartirish",
+    "delete": "O'chirish",
+    "first-name": "Ism",
+    "last-name": "Familiya",
+    "role": "Lavozim",
+    "username": "Username",
+    "password": "Parol",
+    "phoneNumber": "Telefon raqam",
+    "cancel": "Bekor qilish",
+    "telegram": "Telegram",
+    "activity": "Faoliyat turi",
+    "select": "Tanlang"
+  },
+  "filter": {
+    "filter": "Saralash",
+    "from": "Dan",
+    "to": "Gacha",
+    "time": "Sana"
+  }
+}
