@@ -3,17 +3,17 @@
   "name": "Encode CRM system",
   "icons": [
     {
-      "src": "logo.svg",
+      "src": "logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon/svg"
     },
     {
-      "src": "logo.svg",
+      "src": "logo.png",
       "type": "image/png/svg",
       "sizes": "192x192"
     },
     {
-      "src": "logo.svg",
+      "src": "logo.png",
       "type": "image/png/svg",
       "sizes": "512x512"
     }
