@@ -78,13 +78,13 @@ const Layout = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (profile.role === "account_manager") dispatch(getNotifications());
-  }, [pathname, dispatch, profile.role]);
+    if (profile?.role === "account_manager") dispatch(getNotifications());
+  }, [pathname, dispatch, profile?.role]);
 
   useEffect(() => {
-    if (profile.role === "account_manager" && notifications.length > 0)
+    if (profile?.role === "account_manager" && notifications.length > 0)
       dispatch(handleOpen("notification"));
-  }, [notifications.length, pathname, dispatch, profile.role]);
+  }, [notifications.length, pathname, dispatch, profile?.role]);
 
   useEffect(() => {
     if (openModal === "") {
@@ -124,7 +124,7 @@ const Layout = () => {
           }}
         >
           {menus
-            .filter((menu) => menu.permission.includes(profile.role))
+            .filter((menu) => menu.permission.includes(profile?.role))
             .map((item, index) => (
               <ListItem disablePadding key={item.name}>
                 <Link
@@ -196,7 +196,7 @@ const Layout = () => {
         position={"relative"}
       >
         {pages
-          .filter((page) => page.permission.includes(profile.role))
+          .filter((page) => page.permission.includes(profile?.role))
           .find((page) => page.path === pathname)?.component || <NotFound />}
       </Box>
 

@@ -25,7 +25,11 @@ export const getProfileThunk = createAsyncThunk(
 
 export const editProfileThunk = createAsyncThunk(
   "settings/editProfileThunk",
-  async (data: employeePostType, thunkAPI) => {
+  async (
+    body: { data: employeePostType; imageFile: File | null },
+    thunkAPI
+  ) => {
+    const { data, imageFile } = body;
     const formData = new FormData();
     formData.append("first_name", data.first_name);
     formData.append("last_name", data.last_name);
@@ -33,6 +37,7 @@ export const editProfileThunk = createAsyncThunk(
     formData.append("phone_number", data.phone_number);
     formData.append("role", data.role);
     formData.append("username", data.username);
+    formData.append("image", imageFile || "");
 
     const res = await thunkAPI.dispatch(
       httpRequest({

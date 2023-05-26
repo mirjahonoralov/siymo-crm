@@ -15,6 +15,7 @@ import {
 import CustomSelect from "../../Common/CustomSelect";
 import { useTranslation } from "react-i18next";
 import { roleT } from "../../../store/slices/mainSlice";
+import AvatarWrapper from "../../Common/AvatarWrapper";
 
 const UserProfile = () => {
   const { profile, actionsPending } = useAppSelector((state) => state.settings);
@@ -34,6 +35,7 @@ const UserProfile = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const roles = t("roles", { returnObjects: true }) as roleT[];
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const onChange = (value: string | number, name: string) =>
     setData({ ...data, [name]: value });
@@ -56,7 +58,7 @@ const UserProfile = () => {
       setCheckErrors(true);
     else {
       setCheckErrors(false);
-      dispatch(editProfileThunk(data));
+      dispatch(editProfileThunk({ data, imageFile }));
     }
   };
 
@@ -86,7 +88,32 @@ const UserProfile = () => {
             </Text>
           </Stack>
 
-          <Stack gap="40px" mt="40px">
+          <Stack gap="5px" alignItems={"center"} mt="20px">
+            <input
+              type="file"
+              id="avatar"
+              style={{ display: "none" }}
+              onChange={(e) => setImageFile(e.target.files![0])}
+              accept="image/*"
+            />
+
+            <label htmlFor="avatar">
+              {imageFile ? (
+                <AvatarWrapper
+                  size="80px"
+                  url={URL.createObjectURL(imageFile)}
+                />
+              ) : (
+                <AvatarWrapper size="80px" url={data.image} />
+              )}
+            </label>
+
+            {/* <Text c="var(--primary)" fs="12px" fw="400">
+          {indicator.includes("edit") ? t("contact.edit") : t("contact.add")}
+        </Text> */}
+          </Stack>
+
+          <Stack gap="40px" mt="20px">
             <ExtraWrapper>
               <InputWrapper>
                 <span>{t("common.first-name")}</span>
