@@ -23,7 +23,7 @@ export type appT = {
 };
 
 export type appsDataT = {
-  image: string;
+  // image: string;
   index?: number;
   id: number;
   step_id: number;
@@ -34,6 +34,7 @@ export type appsDataT = {
   created_at: string;
   step: string;
   client: {
+    image: string;
     id: string;
     name: string;
     name_uz: string;

@@ -217,7 +217,6 @@ const AddApplication: React.FC<{
         telegram,
         applications,
         person_contact,
-        image,
       } = editingApp;
 
       setApplicationData({ client: +client.id, about: survey });
@@ -227,7 +226,7 @@ const AddApplication: React.FC<{
         phone_number,
         telegram,
         person_contact,
-        image,
+        image: client?.image,
       });
       setList(applications);
     }

@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { CancelReason } from "../style";
 import CustomCheckbox from "../../Common/CustomCheckbox";
 import { setSelectedItems } from "../../../store/slices/applicationsSlice";
+import AvatarWrapper from "../../Common/AvatarWrapper";
 
 type T = {
   item: appsDataT;
@@ -31,7 +32,7 @@ const Application: React.FC<T> = ({ item, index, step }) => {
 
   const { client, reason, id, applications, created_at, manager } = item;
   const jobTypes = [applications.map((item) => item?.job?.name)].join(", ");
-  const { name, phone_number } = client;
+  const { name, phone_number, image } = client;
   const { first_name, last_name } = manager;
   const [date, time] = created_at.split(", ");
   const noPermission = ["account_manager", "office_manager"];
@@ -106,14 +107,17 @@ const Application: React.FC<T> = ({ item, index, step }) => {
         {reason?.length > 15 ? reason?.slice(0, 15) + "..." : reason}
       </CancelReason>
       <Stack gap="10px" width="100%">
-        <Stack>
-          <Text fs="14px" fw="500">
-            {name}
-          </Text>
-          <Text fs="12px" fw="400" c="#828282">
-            {phone_number}
-          </Text>
-        </Stack>
+        <FlexWrapper gap="20px">
+          <AvatarWrapper size="44px" url={image} />
+          <Stack>
+            <Text fs="14px" fw="500">
+              {name}
+            </Text>
+            <Text fs="12px" fw="400" c="#828282">
+              {phone_number}
+            </Text>
+          </Stack>
+        </FlexWrapper>
         <FlexBetween width="100%">
           <FlexWrapper gap="4px" alignItems="center">
             <img src={dateIcon} alt="" style={{ marginBottom: "2px" }} />
