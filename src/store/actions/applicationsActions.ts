@@ -89,8 +89,16 @@ export const createApplicationThunk = createAsyncThunk(
 
 export const createApplicationWithClientThunk = createAsyncThunk(
   "applications/createApplicationWithClientThunk",
-  async (data: { user: postDataType; appData: any; query: any }, thunkAPI) => {
-    const { user, appData, query } = data;
+  async (
+    data: {
+      user: postDataType;
+      appData: any;
+      query: any;
+      imageFile: File | null;
+    },
+    thunkAPI
+  ) => {
+    const { user, appData, query, imageFile } = data;
 
     const notification = (thunkAPI.getState() as any).applications
       .exceptedNotification?.id;
@@ -99,7 +107,7 @@ export const createApplicationWithClientThunk = createAsyncThunk(
     formData.append("name", user.name);
     formData.append("telegram", user.telegram);
     formData.append("phone_number", user.phone_number);
-    formData.append("image", user.image as File);
+    formData.append("image", imageFile || "");
     formData.append("activity", String(user.activity!.id));
 
     const resUser = await thunkAPI.dispatch(

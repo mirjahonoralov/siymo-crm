@@ -13,7 +13,8 @@ import { CameraAlt } from "@mui/icons-material";
 type T = {
   checkErrors: boolean;
   clientData: clientDataT;
-  setClientData: (data: clientDataT) => void;
+  imageFile: File | null;
+  setImageFile: (file: File) => void;
   editingApp: appsDataT | null;
   onChangeSelect: (e: SelectChangeEvent) => void;
   selectedContact: dataType | null;
@@ -27,7 +28,8 @@ const ClientCard: React.FC<T> = ({
   onChangeSelect,
   selectedContact,
   onChange,
-  setClientData,
+  imageFile,
+  setImageFile,
 }) => {
   const { Data } = useAppSelector((state) => state.settings);
 
@@ -125,18 +127,15 @@ const ClientCard: React.FC<T> = ({
             type="file"
             id="avatar"
             style={{ display: "none" }}
-            onChange={(e) =>
-              setClientData({ ...clientData, image: e.target.files![0] })
-            }
+            onChange={(e) => setImageFile(e.target.files![0])}
             accept="image/*"
           />
 
           <label htmlFor="avatar">
-            {clientData.image ? (
-              <AvatarWrapper
-                size="64px"
-                url={URL.createObjectURL(clientData.image as File)}
-              />
+            {imageFile ? (
+              <AvatarWrapper size="64px" url={URL.createObjectURL(imageFile)} />
+            ) : clientData.image ? (
+              <AvatarWrapper size="64px" url={clientData.image} />
             ) : (
               <CameraAlt fontSize="large" style={{ cursor: "pointer" }} />
             )}

@@ -34,7 +34,7 @@ export type clientDataT = {
   activity: { name: string; id: number } | null;
   phone_number: string;
   person_contact: string;
-  image: File | string | null;
+  image: string;
 };
 
 const AddApplication: React.FC<{
@@ -50,11 +50,13 @@ const AddApplication: React.FC<{
   const { about } = Data;
 
   const { activities } = Data;
-  const { actionsPending, editingApp, fillPricingData, cannotEditApp } =
-    useAppSelector((state) => state.applications);
-  const { exceptedNotification } = useAppSelector(
-    (state) => state.applications
-  );
+  const {
+    actionsPending,
+    editingApp,
+    fillPricingData,
+    cannotEditApp,
+    exceptedNotification,
+  } = useAppSelector((state) => state.applications);
 
   const [clientData, setClientData] = useState<clientDataT>(defaultClientData);
   const [applicationData, setApplicationData] = useState<appType>({
@@ -66,6 +68,7 @@ const AddApplication: React.FC<{
 
   const [selectedContact, setSelectedContact] = useState<dataType | null>(null);
   const [checkErrors, setCheckErrors] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const dispatch = useAppDispatch();
   const query = useSearch();
@@ -172,6 +175,7 @@ const AddApplication: React.FC<{
                 user: clientData,
                 appData: { order, objects: changeObject() },
                 query,
+                imageFile,
               })
         );
       else if (editingApp)
@@ -190,6 +194,7 @@ const AddApplication: React.FC<{
                 user: clientData,
                 appData: { order, objects: changeObject() },
                 query,
+                imageFile,
               })
         );
     }
@@ -254,7 +259,8 @@ const AddApplication: React.FC<{
                 onChange={onChange}
                 onChangeSelect={onChangeSelect}
                 selectedContact={selectedContact}
-                setClientData={setClientData}
+                setImageFile={setImageFile}
+                imageFile={imageFile}
               />
 
               <SearchClientCard

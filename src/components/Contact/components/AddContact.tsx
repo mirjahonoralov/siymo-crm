@@ -17,14 +17,16 @@ import { CameraAlt } from "@mui/icons-material";
 
 const AddContact: React.FC<{ handleClose: () => void }> = ({ handleClose }) => {
   const { Data } = useAppSelector((state) => state.settings);
-  const { editingItem, indicator } = useAppSelector((state) => state.contact);
+  const { editingItem, indicator, actionsPending } = useAppSelector(
+    (state) => state.contact
+  );
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [data, setData] = useState<postDataType | dataType>({
     name: "",
     telegram: "",
     phone_number: "",
     activity: Data.activities?.[0] || null,
-    image: null,
+    image: "",
   });
   const [checkErrors, setCheckErrors] = useState(false);
 
@@ -51,8 +53,8 @@ const AddContact: React.FC<{ handleClose: () => void }> = ({ handleClose }) => {
       setCheckErrors(true);
     else {
       if (indicator.includes("edit"))
-        dispatch(editContactThunk(data as dataType));
-      else dispatch(createContactThunk(data as postDataType));
+        dispatch(editContactThunk({ data, imageFile }));
+      else dispatch(createContactThunk({ data, imageFile }));
     }
   };
 
@@ -185,6 +187,7 @@ const AddContact: React.FC<{ handleClose: () => void }> = ({ handleClose }) => {
           padding="0"
           fw="700"
           onClick={handleSubmit}
+          loading={actionsPending === "adding"}
         />
       </Stack>
     </Stack>

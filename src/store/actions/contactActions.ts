@@ -45,12 +45,18 @@ export const getContactActions = createAsyncThunk(
 
 export const createContactThunk = createAsyncThunk(
   "contact/createTypeThunk",
-  async (data: postDataType, thunkAPI) => {
+  async (
+    {
+      data,
+      imageFile,
+    }: { data: dataType | postDataType; imageFile: File | null },
+    thunkAPI
+  ) => {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("telegram", data.telegram);
     formData.append("phone_number", data.phone_number);
-    formData.append("image", data.image as File);
+    formData.append("image", imageFile || "");
     formData.append("activity", String(data.activity!.id));
 
     const res = await thunkAPI.dispatch(
@@ -108,11 +114,18 @@ export const deleteContactThunk = createAsyncThunk(
 
 export const editContactThunk = createAsyncThunk(
   "contact/editContactThunk",
-  async (data: dataType, thunkAPI) => {
+  async (
+    {
+      data,
+      imageFile,
+    }: { data: dataType | postDataType; imageFile: File | null },
+    thunkAPI
+  ) => {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("telegram", data.telegram);
     formData.append("phone_number", data.phone_number);
+    formData.append("image", imageFile || "");
     formData.append("activity", String(data.activity!.id));
 
     const res = await thunkAPI.dispatch(

@@ -19,5 +19,5 @@ export const defaultClientData = {
   activity: null,
   phone_number: "",
   person_contact: "",
-  image: null,
+  image: "",
 };

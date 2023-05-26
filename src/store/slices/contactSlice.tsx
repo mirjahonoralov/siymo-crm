@@ -28,7 +28,7 @@ export type postDataType = {
   phone_number: string;
   activity: { id: number; name: string } | null;
   id?: number;
-  image: File | string | null;
+  image: string;
 };
 
 type stepActionT = {

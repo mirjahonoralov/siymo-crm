@@ -23,7 +23,7 @@ export type appT = {
 };
 
 export type appsDataT = {
-  image: File | null;
+  image: string;
   index?: number;
   id: number;
   step_id: number;
