@@ -99,6 +99,7 @@ export const createApplicationWithClientThunk = createAsyncThunk(
     formData.append("name", user.name);
     formData.append("telegram", user.telegram);
     formData.append("phone_number", user.phone_number);
+    formData.append("image", user.image as File);
     formData.append("activity", String(user.activity!.id));
 
     const resUser = await thunkAPI.dispatch(

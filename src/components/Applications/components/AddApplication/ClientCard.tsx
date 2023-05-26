@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardBody, CardTop, InputWrapper } from "../Header/style";
 import CustomInput from "../../../Common/CustomInput";
 import CustomSelect from "../../../Common/CustomSelect";
@@ -13,6 +13,7 @@ import { CameraAlt } from "@mui/icons-material";
 type T = {
   checkErrors: boolean;
   clientData: clientDataT;
+  setClientData: (data: clientDataT) => void;
   editingApp: appsDataT | null;
   onChangeSelect: (e: SelectChangeEvent) => void;
   selectedContact: dataType | null;
@@ -26,9 +27,9 @@ const ClientCard: React.FC<T> = ({
   onChangeSelect,
   selectedContact,
   onChange,
+  setClientData,
 }) => {
   const { Data } = useAppSelector((state) => state.settings);
-  const [imageFile, setImageFile] = useState<File | null>(null);
 
   return (
     <Card>
@@ -77,7 +78,6 @@ const ClientCard: React.FC<T> = ({
               !selectedContact &&
               !(clientData.telegram || clientData.phone_number)
             }
-            // showError={checkErrors && !selectedContact && !clientData.telegram}
             value={clientData.telegram}
             onChange={!editingApp ? onChange : undefined}
             fullWidth
@@ -125,15 +125,18 @@ const ClientCard: React.FC<T> = ({
             type="file"
             id="avatar"
             style={{ display: "none" }}
-            onChange={(e) => setImageFile(e.target.files![0])}
+            onChange={(e) =>
+              setClientData({ ...clientData, image: e.target.files![0] })
+            }
             accept="image/*"
           />
 
           <label htmlFor="avatar">
-            {imageFile ? (
-              <AvatarWrapper size="64px" url={URL.createObjectURL(imageFile)} />
-            ) : clientData.image ? (
-              <AvatarWrapper size="64px" url={clientData.image as string} />
+            {clientData.image ? (
+              <AvatarWrapper
+                size="64px"
+                url={URL.createObjectURL(clientData.image as File)}
+              />
             ) : (
               <CameraAlt fontSize="large" style={{ cursor: "pointer" }} />
             )}

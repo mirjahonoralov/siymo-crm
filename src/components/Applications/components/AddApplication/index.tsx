@@ -254,6 +254,7 @@ const AddApplication: React.FC<{
                 onChange={onChange}
                 onChangeSelect={onChangeSelect}
                 selectedContact={selectedContact}
+                setClientData={setClientData}
               />
 
               <SearchClientCard

@@ -50,6 +50,7 @@ export const createContactThunk = createAsyncThunk(
     formData.append("name", data.name);
     formData.append("telegram", data.telegram);
     formData.append("phone_number", data.phone_number);
+    formData.append("image", data.image as File);
     formData.append("activity", String(data.activity!.id));
 
     const res = await thunkAPI.dispatch(
