@@ -28,6 +28,7 @@ const UserProfile = () => {
     role: "",
     password2: "",
     id: null,
+    image: "",
   });
 
   const dispatch = useAppDispatch();

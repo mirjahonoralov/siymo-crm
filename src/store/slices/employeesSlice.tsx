@@ -16,6 +16,7 @@ export type employeeType = {
   role: string;
   password2: string;
   id: number | null;
+  image: string;
 };
 
 export type employeeDataType = { count: number; results: employeeType[] };
@@ -27,6 +28,7 @@ export type employeePostType = {
   phone_number: string;
   role: string;
   password2: string;
+  image: string;
 };
 
 export type postDataType = {

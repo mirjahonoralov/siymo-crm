@@ -21,7 +21,11 @@ export const getEmployees = createAsyncThunk(
 
 export const createEmployeeThunk = createAsyncThunk(
   "employees/createEmployeeThunk",
-  async (data: employeePostType, thunkAPI) => {
+  async (
+    body: { data: employeeType | employeePostType; imageFile: File | null },
+    thunkAPI
+  ) => {
+    const { data, imageFile } = body;
     const formData = new FormData();
     formData.append("first_name", data.first_name);
     formData.append("last_name", data.last_name);
@@ -29,6 +33,7 @@ export const createEmployeeThunk = createAsyncThunk(
     formData.append("phone_number", data.phone_number);
     formData.append("role", data.role);
     formData.append("username", data.username);
+    formData.append("image", imageFile || "");
 
     const res = await thunkAPI.dispatch(
       httpRequest({
@@ -78,7 +83,11 @@ export const deleteEmployeeThunk = createAsyncThunk(
 
 export const editEmployeeThunk = createAsyncThunk(
   "employees/editEmployeeThunk",
-  async (data: employeeType, thunkAPI) => {
+  async (
+    body: { data: employeeType | employeePostType; imageFile: File | null },
+    thunkAPI
+  ) => {
+    const { data, imageFile } = body;
     const formData = new FormData();
     formData.append("first_name", data.first_name);
     formData.append("last_name", data.last_name);
@@ -86,10 +95,11 @@ export const editEmployeeThunk = createAsyncThunk(
     formData.append("phone_number", data.phone_number);
     formData.append("role", data.role);
     formData.append("username", data.username);
+    formData.append("image", imageFile || "");
 
     const res = await thunkAPI.dispatch(
       httpRequest({
-        url: `api/workers/${data.id}/`,
+        url: `api/workers/${(data as employeeType).id}/`,
         method: "PUT",
         body: formData,
         haveImg: true,

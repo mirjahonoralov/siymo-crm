@@ -16,6 +16,8 @@ import {
 } from "../../../store/actions/employeesActions";
 import { useTranslation } from "react-i18next";
 import { roleT } from "../../../store/slices/mainSlice";
+import AvatarWrapper from "../../Common/AvatarWrapper";
+import { CameraAlt } from "@mui/icons-material";
 
 const AddEmployee: React.FC<{ handleClose: () => void }> = ({
   handleClose,
@@ -33,8 +35,10 @@ const AddEmployee: React.FC<{ handleClose: () => void }> = ({
     phone_number: "",
     role: roles[0].value,
     password2: "",
+    image: "",
   });
   const [checkErrors, setCheckErrors] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const dispatch = useAppDispatch();
 
@@ -59,8 +63,8 @@ const AddEmployee: React.FC<{ handleClose: () => void }> = ({
       setCheckErrors(true);
     else {
       if (indicator.includes("edit"))
-        dispatch(editEmployeeThunk(data as employeeType));
-      else dispatch(createEmployeeThunk(data as employeePostType));
+        dispatch(editEmployeeThunk({ data, imageFile }));
+      else dispatch(createEmployeeThunk({ data, imageFile }));
     }
   };
 
@@ -84,6 +88,32 @@ const AddEmployee: React.FC<{ handleClose: () => void }> = ({
           ? t("employees.edit")
           : t("employees.addNew")}
       </Text>
+
+      <Stack gap="10px">
+        <Stack gap="5px" alignItems={"center"}>
+          <input
+            type="file"
+            id="avatar"
+            style={{ display: "none" }}
+            onChange={(e) => setImageFile(e.target.files![0])}
+            accept="image/*"
+          />
+
+          <label htmlFor="avatar">
+            {imageFile ? (
+              <AvatarWrapper size="64px" url={URL.createObjectURL(imageFile)} />
+            ) : data.image ? (
+              <AvatarWrapper size="64px" url={data.image as string} />
+            ) : (
+              <CameraAlt fontSize="large" style={{ cursor: "pointer" }} />
+            )}
+          </label>
+
+          <Text c="var(--primary)" fs="12px" fw="400">
+            сотрудник
+          </Text>
+        </Stack>
+      </Stack>
 
       <Stack
         display={"grid"}
